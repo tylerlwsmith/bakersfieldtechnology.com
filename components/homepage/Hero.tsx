@@ -53,7 +53,8 @@ export default function Hero() {
   function onImageLoaded(url, callback) {
     const img = new Image();
     img.src = url;
-    img.onload = callback; //Image has loaded or failed
+    img.onload = callback;
+    img.onerror = callback;
     return;
   }
 
