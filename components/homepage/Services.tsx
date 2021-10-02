@@ -15,46 +15,52 @@ import Container from "components/Container";
 
 // https://codesandbox.io/s/framer-motion-side-menu-mx2rw?from-embed=&file=/src/Example.tsx:711-723
 
-const variants = {
-  visible: {
-    transition: {
-      staggerChildren: 0.1,
-    },
+const services = [
+  {
+    icon: <GlobeAltIcon className="w-8" />,
+    serviceName: "Web development",
   },
-  hidden: {
-    transition: {
-      staggerChildren: 0.1,
-      staggerDirection: -1,
-    },
+  {
+    icon: <DeviceMobileIcon className="w-8" />,
+    serviceName: "Mobile development",
   },
-};
+  {
+    icon: <TemplateIcon className="w-8" />,
+    serviceName: "Custom applications",
+  },
+  {
+    icon: <SortDescendingIcon className="w-8" />,
+    serviceName: "Data automation",
+  },
+  {
+    icon: <DesktopComputerIcon className="w-8" />,
+    serviceName: "Website design",
+  },
+  {
+    icon: <ClipboardListIcon className="w-8" />,
+    serviceName: "Website audits",
+  },
+  {
+    icon: <ExclamationIcon className="w-8" />,
+    serviceName: "Application maintenance",
+  },
+  {
+    icon: <LightBulbIcon className="w-8" />,
+    serviceName: "White-label",
+  },
+];
 
-const itemVariants = {
-  visible: {
-    x: 0,
-    opacity: 1,
-    transition: { duration: 0.3, ease: "easeOut" },
-  },
-  hidden: {
-    x: 10,
-    opacity: 0,
-    transition: { duration: 0.3, ease: "easeOut" },
-  },
-};
-
-const Service = motion(
-  React.forwardRef(({ children }, ref: any) => (
-    <motion.li
-      variants={itemVariants}
-      ref={ref}
-      className="
-      bg-gray-200 py-4 rounded-2xl px-6 drop-shadow-lg 
-      bg-gradient-to-br from-pink-600 to-purple-500 text-white
-    "
-    >
-      {children}
-    </motion.li>
-  ))
+const Service = ({ children, show }) => (
+  <li
+    className={`
+        bg-gradient-to-br from-pink-600 to-purple-500 text-white
+        py-4 rounded-2xl px-6 drop-shadow-lg 
+        transform-gpu transition ease-out duration-300
+        ${show ? "translate-x-0 opacity-100" : "translate-x-6 opacity-0"}
+      `}
+  >
+    {children}
+  </li>
 );
 
 function ServiceName({ children }) {
@@ -69,21 +75,28 @@ function IconWrapper({ children }) {
 
 export default function Services() {
   const ref = useRef();
-  const [visible, setVisible] = useState(false);
+  const [visibilityIndex, setVisibilityIndex] = useState(-1);
+
   useEffect(function animate() {
+    let animationStarted = false;
     const observer = new IntersectionObserver(
       function (entries) {
-        console.log(entries[0]);
-        if (entries[0].isIntersecting === true) {
-          setVisible(true);
-        } else {
-          // setVisible(false);
+        console.log("intersect check function");
+        if (entries[0].isIntersecting === true && animationStarted === false) {
+          animationStarted = true;
+          const interval = setInterval(function () {
+            setVisibilityIndex((currentIndex) => {
+              const newIndex = currentIndex + 1;
+              if (newIndex >= services.length) clearInterval(interval);
+              return newIndex;
+            });
+          }, 100);
         }
       },
       {
         root: null,
-        rootMargin: "100px",
-        threshold: 1,
+        rootMargin: "-200px",
+        // threshold: 1,
       }
     );
     observer.observe(ref.current);
@@ -104,75 +117,22 @@ export default function Services() {
           </p>
         </div>
       </Container>
-      <div ref={ref}>
-        <motion.ul
-          className="
+      <ul
+        ref={ref}
+        className="
             grid pt-6 mx-auto gap-6 px-8
             xs:grid-cols-2 xs:px-4
             md:max-w-3xl md:grid-cols-4
             xl:max-w-7xl 
           "
-          initial="hidden"
-          animate={visible ? "visible" : "hidden"}
-          variants={variants}
-        >
-          <Service>
-            <IconWrapper>
-              <GlobeAltIcon className="w-8" />
-            </IconWrapper>
-            <ServiceName>Web development</ServiceName>
+      >
+        {services.map((service, index) => (
+          <Service key={index} show={visibilityIndex >= index}>
+            <IconWrapper>{service.icon}</IconWrapper>
+            <ServiceName>{service.serviceName}</ServiceName>
           </Service>
-
-          <Service>
-            <IconWrapper>
-              <DeviceMobileIcon className="w-8" />
-            </IconWrapper>
-            <ServiceName>Mobile development</ServiceName>
-          </Service>
-
-          <Service>
-            <IconWrapper>
-              <TemplateIcon className="w-8" />
-            </IconWrapper>
-            <ServiceName>Custom applications</ServiceName>
-          </Service>
-
-          <Service>
-            <IconWrapper>
-              <SortDescendingIcon className="w-8" />
-            </IconWrapper>
-            <ServiceName>Data automation</ServiceName>
-          </Service>
-
-          <Service>
-            <IconWrapper>
-              <DesktopComputerIcon className="w-8" />
-            </IconWrapper>
-            <ServiceName>Website design</ServiceName>
-          </Service>
-
-          <Service>
-            <IconWrapper>
-              <ClipboardListIcon className="w-8" />
-            </IconWrapper>
-            <ServiceName>Website audits</ServiceName>
-          </Service>
-
-          <Service>
-            <IconWrapper>
-              <ExclamationIcon className="w-8" />
-            </IconWrapper>
-            <ServiceName>Application maintenance</ServiceName>
-          </Service>
-
-          <Service>
-            <IconWrapper>
-              <LightBulbIcon className="w-8" />
-            </IconWrapper>
-            <ServiceName>White-label development</ServiceName>
-          </Service>
-        </motion.ul>
-      </div>
+        ))}
+      </ul>
     </div>
   );
 }
