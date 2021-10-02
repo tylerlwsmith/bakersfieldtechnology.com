@@ -2,17 +2,24 @@ import Container from "components/Container";
 
 export default function Contact() {
   return (
-    <div className="bg-pink-50 pt-12 pb-16 px-6">
+    <div className="bg-pink-50 pt-14 pb-16 px-6">
       <Container>
         <div>
           <h2 className="text-pink-600 text-5xl font-black mb-5 text-center sr-only">
             Contact
           </h2>
           <div className="text-center font-light text-gray-900 mx-auto">
-            <p className="text-4xl mb-2 text-pink-600 font-black">
+            <p
+              className="
+                mb-4 text-pink-600 font-black
+                text-3xl
+                sm:text-4xl
+              "
+              style={{ fontFamily: "Montserrat, sans-serif" }}
+            >
               Have a project in mind?
             </p>
-            <p className="text-2xl mb-8">
+            <p className="mb-8 text-xl sm:text-2xl">
               Get in touch and let's solve your problem together.
             </p>
 

@@ -64,7 +64,7 @@ function Service({ children }) {
 
 function ServiceName({ children }) {
   return (
-    <div className="font-semibold text-lg tracking-wide" children={children} />
+    <div className="font-bold text-lg tracking-wide" children={children} />
   );
 }
 

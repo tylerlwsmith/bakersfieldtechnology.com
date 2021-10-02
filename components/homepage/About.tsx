@@ -6,14 +6,14 @@ export default function WhoAmI() {
       <div className="max-w-3xl mx-auto px-8">
         <h2
           className="
-            font-black mb-8
+            font-black mb-8 text-pink-600
             text-5xl
             sm:text-6xl
           "
         >
           Who am I?
         </h2>
-        <div className="prose text-xl font-light text-gray-700">
+        <div className="prose text-xl font-light text-gray-500 not-antialiased leading-8 sm:leading-10">
           <p>
             My name is <strong>Tyler Smith</strong>. I was born and raised here
             in Bakersfield. I started my career in the tech industry in
