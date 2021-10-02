@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import FadeIn from "components/FadeIn";
 
+const heroImageUrl = "/hero.jpg";
+
 function InsetBackgroundImage() {
   return (
     <div
       className="z-0 inset-0 absolute bg-no-repeat bg-cover bg-center opacity-30 mix-blend-soft-light sm:bg-fixed"
-      style={{ backgroundImage: "url(/hero2.jpeg)" }}
+      style={{ backgroundImage: `url(${heroImageUrl})` }}
     />
   );
 }
@@ -33,16 +35,27 @@ export default function Hero() {
 
   useEffect(function animate() {
     let numberOfItems = 3;
-    setTimeout(function () {
-      const interval = setInterval(function () {
-        setVisibilityIndex((currentIndex) => {
-          const newIndex = currentIndex + 1;
-          if (newIndex >= numberOfItems) clearInterval(interval);
-          return newIndex;
-        });
+
+    onImageLoaded(heroImageUrl, () => {
+      setTimeout(function () {
+        const interval = setInterval(function () {
+          setVisibilityIndex((currentIndex) => {
+            const newIndex = currentIndex + 1;
+            if (newIndex >= numberOfItems) clearInterval(interval);
+            return newIndex;
+          });
+        }, 100);
       }, 100);
-    }, 100);
+    });
   }, []);
+
+  // https://stackoverflow.com/a/55358417/7759523
+  function onImageLoaded(url, callback) {
+    const img = new Image();
+    img.src = url;
+    img.onload = callback; //Image has loaded or failed
+    return;
+  }
 
   return (
     <header

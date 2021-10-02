@@ -31,7 +31,7 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 ## Todo:
 
 - Swap font: DONE!
+- Buy hero image: DONE!
 - Hero on mobile
-- Buy hero image
 - Open graph & page meta
 - Update email?
