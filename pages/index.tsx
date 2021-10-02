@@ -34,6 +34,25 @@ function Home() {
   return (
     <React.Fragment>
       <Head>
+        <title>Bakersfield Technology: Website and app development</title>
+        <meta
+          name="description"
+          content="Building technology for Bakersfield's digital needs."
+        />
+
+        <meta property="og:site_name" content="Bakersfield Technology" />
+        <meta
+          property="og:description"
+          content="Building technology for Bakersfield's digital needs."
+        />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:title" content="Homepage" />
+        <meta property="og:url" content="https://bakersfieldtechnology.com" />
+        <meta
+          property="og:image"
+          content="https://bakersfieldtechnology.com/og-image.jpg"
+        />
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
