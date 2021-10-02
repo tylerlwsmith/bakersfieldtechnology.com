@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
 import {
   DesktopComputerIcon,
   DeviceMobileIcon,
@@ -47,7 +46,7 @@ const services = [
   },
   {
     icon: <LightBulbIcon className="w-8" />,
-    serviceName: "White-label",
+    serviceName: "White-label development",
   },
 ];
 
@@ -109,7 +108,13 @@ export default function Services() {
         <h2 className="text-pink-600 text-5xl font-black mb-6 text-center">
           Services
         </h2>
-        <div className="prose text-center text-3xl text-gray-700 font-light mb-6 px-8">
+        <div
+          className="
+            prose text-center text-gray-700 font-light mb-6 
+            text-2xl px-6
+            sm:text-3xl sm:px-8
+          "
+        >
           <p>
             <strong className="font-normal">Bakersfield Technology</strong>'s{" "}
             services include:

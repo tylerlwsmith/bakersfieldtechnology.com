@@ -4,7 +4,7 @@ import FadeIn from "components/FadeIn";
 function InsetBackgroundImage() {
   return (
     <div
-      className="z-0 inset-0 absolute bg-no-repeat bg-cover bg-center opacity-30 mix-blend-soft-light bg-fixed"
+      className="z-0 inset-0 absolute bg-no-repeat bg-cover bg-center opacity-30 mix-blend-soft-light sm:bg-fixed"
       style={{ backgroundImage: "url(/hero2.jpeg)" }}
     />
   );
@@ -33,12 +33,14 @@ export default function Hero() {
 
   useEffect(function animate() {
     let numberOfItems = 3;
-    const interval = setInterval(function () {
-      setVisibilityIndex((currentIndex) => {
-        const newIndex = currentIndex + 1;
-        if (newIndex >= numberOfItems) clearInterval(interval);
-        return newIndex;
-      });
+    setTimeout(function () {
+      const interval = setInterval(function () {
+        setVisibilityIndex((currentIndex) => {
+          const newIndex = currentIndex + 1;
+          if (newIndex >= numberOfItems) clearInterval(interval);
+          return newIndex;
+        });
+      }, 100);
     }, 100);
   }, []);
 
@@ -78,8 +80,8 @@ export default function Hero() {
               href="#services"
               className="
               inline-block tracking-widest border border-white rounded-full
-               hover:bg-white hover:text-pink-600 transition
-              text-normal px-10 py-3
+              hover:bg-white hover:text-pink-600 transition
+              text-regular px-10 py-3
               sm:text-lg sm:px-12
             "
             >
