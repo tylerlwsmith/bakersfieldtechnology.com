@@ -1,3 +1,6 @@
+import { useState, useEffect } from "react";
+import FadeIn from "components/FadeIn";
+
 function InsetBackgroundImage() {
   return (
     <div
@@ -26,6 +29,19 @@ function WidthConstrainer({ children }) {
 }
 
 export default function Hero() {
+  const [visibilityIndex, setVisibilityIndex] = useState(-1);
+
+  useEffect(function animate() {
+    let numberOfItems = 3;
+    const interval = setInterval(function () {
+      setVisibilityIndex((currentIndex) => {
+        const newIndex = currentIndex + 1;
+        if (newIndex >= numberOfItems) clearInterval(interval);
+        return newIndex;
+      });
+    }, 100);
+  }, []);
+
   return (
     <header
       className="
@@ -38,32 +54,38 @@ export default function Hero() {
       <InsetBackgroundImage />
       <CenteredContainer>
         <WidthConstrainer>
-          <h1
-            className="
+          <FadeIn show={visibilityIndex >= 0}>
+            <h1
+              className="
               font-black tracking-wide mb-8
               text-4xl
               sm:text-7xl
               md:text-8xl
             "
-          >
-            Bakersfield Technology
-          </h1>
+            >
+              Bakersfield Technology
+            </h1>
+          </FadeIn>
 
-          <p className="text-lg sm:text-2xl font-light tracking-wider mb-14">
-            Building technology for Bakersfield's digital needs
-          </p>
+          <FadeIn show={visibilityIndex >= 1}>
+            <p className="text-lg sm:text-2xl font-light tracking-wider mb-14">
+              Building technology for Bakersfield's digital needs
+            </p>
+          </FadeIn>
 
-          <a
-            href="#services"
-            className="
+          <FadeIn show={visibilityIndex >= 2}>
+            <a
+              href="#services"
+              className="
               inline-block tracking-widest border border-white rounded-full
                hover:bg-white hover:text-pink-600 transition
               text-normal px-10 py-3
               sm:text-lg sm:px-12
             "
-          >
-            Learn More
-          </a>
+            >
+              Learn More
+            </a>
+          </FadeIn>
         </WidthConstrainer>
       </CenteredContainer>
     </header>

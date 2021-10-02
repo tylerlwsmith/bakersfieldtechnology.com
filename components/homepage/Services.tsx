@@ -12,6 +12,7 @@ import {
 } from "@heroicons/react/outline";
 
 import Container from "components/Container";
+import FadeIn from "components/FadeIn";
 
 // https://codesandbox.io/s/framer-motion-side-menu-mx2rw?from-embed=&file=/src/Example.tsx:711-723
 
@@ -50,18 +51,17 @@ const services = [
   },
 ];
 
-const Service = ({ children, show }) => (
-  <li
-    className={`
+function Service({ children }) {
+  return (
+    <div
+      className={`
         bg-gradient-to-br from-pink-600 to-purple-500 text-white
         py-4 rounded-2xl px-6 drop-shadow-lg 
-        transform-gpu transition ease-out duration-300
-        ${show ? "translate-x-0 opacity-100" : "translate-x-6 opacity-0"}
       `}
-  >
-    {children}
-  </li>
-);
+      children={children}
+    />
+  );
+}
 
 function ServiceName({ children }) {
   return (
@@ -81,7 +81,6 @@ export default function Services() {
     let animationStarted = false;
     const observer = new IntersectionObserver(
       function (entries) {
-        console.log("intersect check function");
         if (entries[0].isIntersecting === true && animationStarted === false) {
           animationStarted = true;
           const interval = setInterval(function () {
@@ -120,17 +119,21 @@ export default function Services() {
       <ul
         ref={ref}
         className="
-            grid pt-6 mx-auto gap-6 px-8
-            xs:grid-cols-2 xs:px-4
-            md:max-w-3xl md:grid-cols-4
-            xl:max-w-7xl 
-          "
+          grid pt-6 mx-auto gap-6 px-8
+          xs:grid-cols-2 xs:px-4
+          md:max-w-3xl md:grid-cols-4
+          xl:max-w-7xl 
+        "
       >
         {services.map((service, index) => (
-          <Service key={index} show={visibilityIndex >= index}>
-            <IconWrapper>{service.icon}</IconWrapper>
-            <ServiceName>{service.serviceName}</ServiceName>
-          </Service>
+          <li key={index}>
+            <FadeIn show={visibilityIndex >= index}>
+              <Service>
+                <IconWrapper>{service.icon}</IconWrapper>
+                <ServiceName>{service.serviceName}</ServiceName>
+              </Service>
+            </FadeIn>
+          </li>
         ))}
       </ul>
     </div>
