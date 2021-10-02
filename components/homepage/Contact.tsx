@@ -24,7 +24,7 @@ export default function Contact() {
             </p>
 
             <a
-              href="mailto:tylerlwsmith@gmail.com"
+              href="mailto:tyler@deadhandmedia.com"
               target="_blank"
               rel="noopener"
               className="
