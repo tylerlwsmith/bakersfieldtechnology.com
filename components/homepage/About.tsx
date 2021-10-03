@@ -16,9 +16,9 @@ export default function WhoAmI() {
         <div className="prose text-xl font-light text-gray-500 not-antialiased leading-8 sm:leading-10">
           <p>
             My name is <strong>Tyler Smith</strong>. I was born and raised here
-            in Bakersfield. I started my career in the tech industry in
-            Sacramento in 2015. As I progressed in my career, I got to work on
-            websites for some of the most well-funded ballot initiative
+            in Bakersfield, then started my career in the tech industry while
+            living in Sacramento in 2015. As I progressed in my career, I got to
+            work on websites for some of the most well-funded ballot initiative
             campaigns in California's history, and I built tools that empowered
             voters and legislative decision-makers. When I went independent, my
             first client was Stan Lee of Marvel Comics fame.
