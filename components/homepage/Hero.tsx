@@ -24,7 +24,12 @@ function CenteredContainer({ children }) {
 function WidthConstrainer({ children }) {
   return (
     <div
-      className=" mx-auto max-w-[250px] sm:mx-0 sm:max-w-md md:max-w-2xl"
+      className="
+        mx-auto text-center
+        sm:mx-0 sm:text-left
+        sm:max-w-md
+        md:max-w-2xl
+      "
       children={children}
     />
   );
@@ -62,9 +67,9 @@ export default function Hero() {
     <header
       className="
         flex items-center
-        h-96 min-h-screen bg-gradient-to-br 
+        min-h-screen bg-gradient-to-br 
         from-pink-600 to-purple-500 text-white
-        px-6 sm:px-10 pt-20 pb-16 relative
+        px-6 sm:px-10 pt-24 pb-20 relative
       "
     >
       <InsetBackgroundImage />
@@ -74,7 +79,7 @@ export default function Hero() {
             <h1
               className="
               font-black tracking-wide mb-8
-              text-4xl
+              text-[12vw] leading-[1.0em]
               sm:text-7xl
               md:text-8xl
             "
