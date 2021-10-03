@@ -64,7 +64,7 @@ function Home() {
           content="Building technology for Bakersfield's digital needs."
         />
         <meta property="og:locale" content="en_US" />
-        <meta property="og:title" content="Homepage" />
+        <meta property="og:title" content="Bakersfield Technology" />
         <meta property="og:url" content="https://bakersfieldtechnology.com" />
         <meta
           property="og:image"
