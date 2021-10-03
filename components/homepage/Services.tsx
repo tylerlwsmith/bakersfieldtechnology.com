@@ -80,7 +80,9 @@ export default function Services() {
     let animationStarted = false;
     const observer = new IntersectionObserver(
       function (entries) {
-        if (entries[0].isIntersecting === true && animationStarted === false) {
+        if (animationStarted) return;
+
+        if (entries[0].isIntersecting === true) {
           animationStarted = true;
           const interval = setInterval(function () {
             setVisibilityIndex((currentIndex) => {
