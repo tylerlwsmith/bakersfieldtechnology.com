@@ -34,14 +34,13 @@ const pageSections: PageSection[] = [
 function Home() {
   return (
     <React.Fragment>
-      <Head>
-        {/* https://blog.jarrodwatts.com/track-user-behaviour-on-your-website-with-google-analytics-and-nextjs */}
-        <Script
-          strategy="lazyOnload"
-          src="https://www.googletagmanager.com/gtag/js?id=G-PQ033CGTYZ"
-        />
-        <Script strategy="lazyOnload">
-          {`
+      {/* https://blog.jarrodwatts.com/track-user-behaviour-on-your-website-with-google-analytics-and-nextjs */}
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-PQ033CGTYZ"
+      />
+      <Script>
+        {`
             <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
@@ -51,7 +50,8 @@ function Home() {
           
             gtag('config', 'G-PQ033CGTYZ');
         `}
-        </Script>
+      </Script>
+      <Head>
         <title>Bakersfield Technology: Website and app development</title>
         <meta
           name="description"
