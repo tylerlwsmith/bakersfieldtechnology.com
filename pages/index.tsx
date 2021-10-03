@@ -4,6 +4,7 @@ import About from "components/homepage/About";
 import Services from "components/homepage/Services";
 import Head from "next/head";
 import Image from "next/image";
+import Script from "next/script";
 import Contact from "components/homepage/Contact";
 
 interface PageSection {
@@ -34,6 +35,23 @@ function Home() {
   return (
     <React.Fragment>
       <Head>
+        {/* https://blog.jarrodwatts.com/track-user-behaviour-on-your-website-with-google-analytics-and-nextjs */}
+        <Script
+          strategy="lazyOnload"
+          src="https://www.googletagmanager.com/gtag/js?id=G-PQ033CGTYZ"
+        />
+        <Script strategy="lazyOnload">
+          {`
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+          
+            gtag('config', 'G-PQ033CGTYZ');
+        `}
+        </Script>
         <title>Bakersfield Technology: Website and app development</title>
         <meta
           name="description"
