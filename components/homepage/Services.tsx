@@ -55,7 +55,7 @@ function Service({ children }) {
     <div
       className={`
         bg-gradient-to-br from-pink-600 to-purple-500 text-white
-        py-4 rounded-2xl px-6 drop-shadow-lg 
+        py-4 rounded-2xl px-6 drop-shadow-lg w-full
       `}
       children={children}
     />
@@ -131,8 +131,11 @@ export default function Services() {
         "
       >
         {services.map((service, index) => (
-          <li key={index}>
-            <FadeIn show={visibilityIndex >= index}>
+          <li key={index} className="flex">
+            <FadeIn
+              show={visibilityIndex >= index}
+              className="w-full flex items-stretch"
+            >
               <Service>
                 <IconWrapper>{service.icon}</IconWrapper>
                 <ServiceName>{service.serviceName}</ServiceName>
