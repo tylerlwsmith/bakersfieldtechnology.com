@@ -1,5 +1,3 @@
-import Container from "components/Container";
-
 export default function WhoAmI() {
   return (
     <div className="pt-16 pb-20">

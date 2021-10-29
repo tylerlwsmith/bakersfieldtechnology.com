@@ -13,8 +13,6 @@ import {
 import Container from "components/Container";
 import FadeIn from "components/FadeIn";
 
-// https://codesandbox.io/s/framer-motion-side-menu-mx2rw?from-embed=&file=/src/Example.tsx:711-723
-
 const services = [
   {
     icon: <GlobeAltIcon className="w-8" />,
@@ -96,7 +94,7 @@ export default function Services() {
       {
         root: null,
         rootMargin: "-200px",
-        // threshold: 1,
+        // threshold: 1, // Unsure of the ideal value here.
       }
     );
     observer.observe(ref.current);
