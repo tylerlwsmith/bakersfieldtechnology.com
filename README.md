@@ -1,37 +1,13 @@
-# Next.js + Tailwind CSS Example
+# Bakersfield Technology website
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v2.2)](https://blog.tailwindcss.com/tailwindcss-2-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+This repo contains the landing page for [bakersfieldtechnology.com](https://bakersfieldtechnology.com). I built the site over the course of a few days as an experiment to see if I could rank up for technology related keywords in Bakersfield to generate leads.
 
-It uses the new [`Just-in-Time Mode`](https://tailwindcss.com/docs/just-in-time-mode) for Tailwind CSS.
+The experiment was unsuccessful 😅
 
-## Preview
+The project was built using Next.js, TypeScript and Tailwind CSS. It's hosted for free on Netlify, which builds it as a static site and deploys it automatically upon new commits.
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
+## Running locally
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+Before you can run the site locally, you must have Node.js and Yarn package manager installed.
 
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
-
-## Todo:
-
-- Swap font: DONE!
-- Buy hero image: DONE!
-- Update email: DONE!
-- Open graph & page meta: DONE!
-- Hero on mobile: DONE!
+To get started with development, clone the site, change into the project's directory, then run `yarn` in the terminal to install the project dependencies. To launch the development server, run `yarn dev`.
