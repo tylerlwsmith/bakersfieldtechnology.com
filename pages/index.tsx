@@ -3,7 +3,6 @@ import Hero from "components/homepage/Hero";
 import About from "components/homepage/About";
 import Services from "components/homepage/Services";
 import Head from "next/head";
-import Image from "next/image";
 import Script from "next/script";
 import Contact from "components/homepage/Contact";
 
