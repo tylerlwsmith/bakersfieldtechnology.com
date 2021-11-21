@@ -40,7 +40,7 @@ function InsetBackgroundImage() {
     <div
       ref={ref}
       className="absolute inset-0 opacity-30 mix-blend-soft-light z-10"
-      style={{ clipPath: `inset(${inset}px)` }}
+      style={{ clipPath: `inset(0 ${inset}px)` }}
     >
       <div
         className="inset-0 absolute bg-no-repeat bg-cover bg-center sm:fixed"
