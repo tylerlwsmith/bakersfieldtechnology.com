@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import FadeIn from "components/FadeIn";
 
 const heroImageUrl = "/hero.jpg";
@@ -11,14 +11,39 @@ function InsetBackgroundImage() {
    *
    * Problem description:  https://medium.com/vehikl-news/fixed-background-image-performance-issue-6b7d9e2dbc55
    * Implemented solution: https://jsfiddle.net/lmeurs/jf3t0fmf/
+   *
+   * MacOS Chrome 95.0.4638.69 has a bug where sometimes the absolutely
+   * positioned parent will disappear on scroll. To replicate at the time of
+   * writing, comment out the useEffect hook, scroll to the very bottom of the
+   * page, reload then scroll to the very top. The background will be missing.
+   *
+   * To fix this, an intersection observer is used to change the inset value
+   * from 0px to -1px on scroll. This forces the browser to rerender the
+   * element without changing its appearance.
    */
+  const ref = useRef();
+  const [inset, setInset] = useState(0);
+  useEffect(function animate() {
+    const observer = new IntersectionObserver(
+      function (entries) {
+        if (entries[0].isIntersecting === false) return;
+        setInset((inset) => {
+          return inset === 0 ? -1 : 0;
+        });
+      },
+      { root: null }
+    );
+    observer.observe(ref.current);
+    return () => observer.unobserve(ref.current);
+  }, []);
   return (
     <div
-      className="absolute inset-0"
-      style={{ clip: "rect(0, auto, auto, 0)" }}
+      ref={ref}
+      className="absolute inset-0 opacity-30 mix-blend-soft-light z-10"
+      style={{ clipPath: `inset(${inset}px)` }}
     >
       <div
-        className="z-0 inset-0 absolute bg-no-repeat bg-cover bg-center opacity-30 mix-blend-soft-light sm:fixed"
+        className="inset-0 absolute bg-no-repeat bg-cover bg-center sm:fixed"
         style={{ backgroundImage: `url(${heroImageUrl})` }}
       />
     </div>
