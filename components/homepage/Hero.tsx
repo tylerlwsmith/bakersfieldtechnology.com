@@ -4,11 +4,24 @@ import FadeIn from "components/FadeIn";
 const heroImageUrl = "/hero.jpg";
 
 function InsetBackgroundImage() {
+  /**
+   * Using fixed position element for better scroll performance than using
+   * `background-attachment: fixed`. Using `clip` to handle overflow issues
+   * on fixed position element.
+   *
+   * Problem description:  https://medium.com/vehikl-news/fixed-background-image-performance-issue-6b7d9e2dbc55
+   * Implemented solution: https://jsfiddle.net/lmeurs/jf3t0fmf/
+   */
   return (
     <div
-      className="z-0 inset-0 absolute bg-no-repeat bg-cover bg-center opacity-30 mix-blend-soft-light sm:bg-fixed"
-      style={{ backgroundImage: `url(${heroImageUrl})` }}
-    />
+      className="absolute inset-0"
+      style={{ clip: "rect(0, auto, auto, 0)" }}
+    >
+      <div
+        className="z-0 inset-0 absolute bg-no-repeat bg-cover bg-center opacity-30 mix-blend-soft-light sm:fixed"
+        style={{ backgroundImage: `url(${heroImageUrl})` }}
+      />
+    </div>
   );
 }
 
