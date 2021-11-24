@@ -17,7 +17,7 @@ export default function Services() {
         <div className="prose text-xl font-light text-gray-500 not-antialiased leading-8 mb-8 max-w-xl">
           <p>
             Bakersfield Technology has experience with a wide variety of tools
-            and languages. Here are some of our favorites.
+            and languages. Here are some favorites.
           </p>
         </div>
 
