@@ -78,8 +78,6 @@ export default function Services() {
     let animationStarted = false;
     const observer = new IntersectionObserver(
       function (entries) {
-        console.log("I am starting...");
-        console.log({ animationStarted });
         if (animationStarted) return;
 
         if (entries[0].isIntersecting === true) {
