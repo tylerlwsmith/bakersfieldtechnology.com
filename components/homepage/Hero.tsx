@@ -31,7 +31,16 @@ function InsetBackgroundImage() {
           return inset === 0 ? 1 : 0;
         });
       },
-      { root: null }
+      {
+        /**
+         * If the page loads at the top pixel of the services section (which can
+         * happen by clicking "Services" from the menu then reloading the page),
+         * and scroll up, the background won't be loaded if the threshold is at
+         * the default of 0. We will trigger the intersection callback again at
+         * 0.1 to ensure that the image is visible.
+         */
+        threshold: [0, 0.1],
+      }
     );
     observer.observe(ref.current);
     return () => observer.unobserve(ref.current);
