@@ -24,6 +24,8 @@ function InsetBackgroundImage() {
   const ref = useRef();
   const [inset, setInset] = useState(0);
   useEffect(function animate() {
+    /** Keep a local reference so we can do cleanup without an error. */
+    const observedRef = ref.current;
     const observer = new IntersectionObserver(
       function (entries) {
         if (entries[0].isIntersecting === false) return;
@@ -42,8 +44,8 @@ function InsetBackgroundImage() {
         threshold: [0, 0.1],
       }
     );
-    observer.observe(ref.current);
-    return () => observer.unobserve(ref.current);
+    observer.observe(observedRef);
+    return () => observer.unobserve(observedRef);
   }, []);
   return (
     <div
@@ -58,6 +60,15 @@ function InsetBackgroundImage() {
         style={{ backgroundImage: `url(${heroImageUrl})` }}
       />
     </div>
+  );
+}
+
+function InsetBackgroundImageOld() {
+  return (
+    <div
+      className="z-0 inset-0 absolute bg-no-repeat bg-cover bg-center opacity-30 mix-blend-soft-light sm:bg-fixed"
+      style={{ backgroundImage: `url(${heroImageUrl})` }}
+    />
   );
 }
 
@@ -86,6 +97,14 @@ function WidthConstrainer({ children }) {
 
 export default function Hero() {
   const [visibilityIndex, setVisibilityIndex] = useState(-1);
+  const [useNewBackground, setUseNewBackground] = useState(true); // performance test
+  useEffect(
+    () =>
+      console.log(
+        useNewBackground ? "Using fancy BG" : "Using background-attachment"
+      ),
+    [useNewBackground]
+  );
 
   useEffect(function animate() {
     let numberOfItems = 3;
@@ -114,6 +133,7 @@ export default function Hero() {
 
   return (
     <header
+      style={{ willChange: "opacity" }}
       className="
         flex items-center
         min-h-screen bg-gradient-to-br 
@@ -121,7 +141,12 @@ export default function Hero() {
         px-6 sm:px-10 pt-24 pb-20 relative
       "
     >
-      <InsetBackgroundImage />
+      {useNewBackground ? (
+        <InsetBackgroundImage />
+      ) : (
+        <InsetBackgroundImageOld />
+      )}
+
       <CenteredContainer>
         <WidthConstrainer>
           <FadeIn show={visibilityIndex >= 0}>
@@ -133,7 +158,10 @@ export default function Hero() {
               md:text-8xl
             "
             >
-              Bakersfield Technology
+              <span onClick={() => setUseNewBackground((current) => !current)}>
+                Bakersfield
+              </span>{" "}
+              Technology
             </h1>
           </FadeIn>
 
