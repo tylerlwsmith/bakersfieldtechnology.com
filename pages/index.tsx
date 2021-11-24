@@ -37,6 +37,15 @@ const pageSections: PageSection[] = [
 ].filter((item) => item);
 
 function Home() {
+  function scrollToSection(
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) {
+    event.preventDefault();
+    // @ts-ignore
+    const sectionId = new URL(event.target.href).hash;
+    const section = document.querySelector(sectionId);
+    section.scrollIntoView();
+  }
   return (
     <React.Fragment>
       {/* https://blog.jarrodwatts.com/track-user-behaviour-on-your-website-with-google-analytics-and-nextjs */}
@@ -99,6 +108,7 @@ function Home() {
                 <a
                   className="border-b border-transparent hover:border-white transition-all p-1.5"
                   href={`#${section.id}`}
+                  onClick={scrollToSection}
                 >
                   {section.menuTitle}
                 </a>
