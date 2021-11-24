@@ -78,6 +78,8 @@ export default function Services() {
     let animationStarted = false;
     const observer = new IntersectionObserver(
       function (entries) {
+        console.log("I am starting...");
+        console.log({ animationStarted });
         if (animationStarted) return;
 
         if (entries[0].isIntersecting === true) {
@@ -92,9 +94,7 @@ export default function Services() {
         }
       },
       {
-        root: null,
-        rootMargin: "-200px",
-        // threshold: 1, // Unsure of the ideal value here.
+        rootMargin: "-200px 0px",
       }
     );
     observer.observe(ref.current);
