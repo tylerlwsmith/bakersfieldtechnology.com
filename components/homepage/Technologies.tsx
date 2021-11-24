@@ -8,12 +8,13 @@ export default function Services() {
           className="
             font-black mb-8 text-pink-600
             text-3xl
-            xs:text-6xl
+            xs:text-5xl
+            sm:text-6xl
           "
         >
           Technologies
         </h2>
-        <div className="prose text-xl font-light text-gray-500 not-antialiased leading-8 sm:leading-10 mb-4 max-w-xl">
+        <div className="prose text-xl font-light text-gray-500 not-antialiased leading-8 mb-8 max-w-xl">
           <p>
             Bakersfield Technology has experience with a wide variety of tools
             and languages. Here are some of our favorites.
@@ -46,7 +47,7 @@ export default function Services() {
           <li>Ruby</li>
         </ul>
 
-        <div className="text-sm max-w-sm text-gray-500">
+        <div className="text-sm max-w-sm pt-2 text-gray-500">
           <p>
             Don't see your organization's tools listed on here?{" "}
             <a href="/#contact">Send an email</a> and let's see what we can do.
