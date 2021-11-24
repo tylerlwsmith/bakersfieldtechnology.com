@@ -7,6 +7,10 @@ import Services from "components/homepage/Services";
 import About from "components/homepage/About";
 import Contact from "components/homepage/Contact";
 
+console.log(
+  "Want to view the source for this site? Go to https://github.com/tylerlwsmith/bakersfieldtechnology.com"
+);
+
 interface PageSection {
   component: React.ReactNode;
   menuTitle: string;
