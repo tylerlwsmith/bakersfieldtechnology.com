@@ -1,9 +1,10 @@
 import React from "react";
-import Hero from "components/homepage/Hero";
-import About from "components/homepage/About";
-import Services from "components/homepage/Services";
 import Head from "next/head";
 import Script from "next/script";
+import Hero from "components/homepage/Hero";
+import Technologies from "components/homepage/Technologies";
+import Services from "components/homepage/Services";
+import About from "components/homepage/About";
 import Contact from "components/homepage/Contact";
 
 interface PageSection {
@@ -19,6 +20,11 @@ const pageSections: PageSection[] = [
     id: "services",
   },
   {
+    component: <Technologies />,
+    menuTitle: "Technologies",
+    id: "technologies",
+  },
+  {
     component: <About />,
     menuTitle: "About",
     id: "about",
@@ -28,7 +34,7 @@ const pageSections: PageSection[] = [
     menuTitle: "Contact",
     id: "contact",
   },
-];
+].filter((item) => item);
 
 function Home() {
   return (
@@ -50,13 +56,14 @@ function Home() {
             gtag('config', 'G-PQ033CGTYZ');
         `}
       </Script>
+
       <Head>
         <title>Bakersfield Technology: Website and app development</title>
         <meta
           name="description"
           content="Building technology for Bakersfield's digital needs."
         />
-
+        {"<!-- Testing -->"}
         <meta property="og:site_name" content="Bakersfield Technology" />
         <meta
           property="og:description"
