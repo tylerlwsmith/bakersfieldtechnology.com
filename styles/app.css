@@ -1,8 +1,15 @@
 html {
-  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: "Open Sans", sans-serif;
+}
+
+/**
+ * The `:focus-within` prevents smooth scrolling with cmd + f.
+ * https://css-tricks.com/fixing-smooth-scrolling-with-find-on-page/
+ */
+html:focus-within {
+  scroll-behavior: smooth;
 }
 
 h1,
