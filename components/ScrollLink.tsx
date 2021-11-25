@@ -3,24 +3,24 @@ export default function ScrollLink({ href, ...props }) {
   function scrollToSection(
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
   ) {
-    event.preventDefault();
-
     const sectionId = new URL(event.target.href).hash;
     const section = document.querySelector(sectionId);
     if (!section) return;
 
+    event.preventDefault();
     const hasTabIndex = section.hasAttribute("tabindex");
     const hasOutline = section.style.outline ? true : false;
 
-    !hasTabIndex && section.setAttribute("tabindex", "-1");
-    !hasOutline && (section.style.outline = "none");
+    if (!hasTabIndex) section.setAttribute("tabindex", "-1");
+    if (!hasOutline) section.style.outline = "none";
 
-    section.focus();
+    section.scrollIntoView({ behavior: "smooth", block: "start" });
+    section.focus({ preventScroll: true });
 
     section.addEventListener("blur", function blurListener() {
       section.removeEventListener("blur", blurListener);
-      !hasTabIndex && section.removeAttribute("tabindex");
-      !hasOutline && section.style.removeProperty("outline");
+      if (!hasTabIndex) section.removeAttribute("tabindex");
+      if (!hasOutline) section.style.removeProperty("outline");
     });
   }
   return <a {...props} href={href} onClick={scrollToSection} />;
