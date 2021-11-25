@@ -73,6 +73,15 @@ function InsetBackgroundImageOld() {
   );
 }
 
+function InsetBackgroundImageNewest() {
+  return (
+    <div
+      className="z-0 inset-0 fixed bg-no-repeat bg-cover bg-center opacity-30 mix-blend-soft-light"
+      style={{ backgroundImage: `url(${heroImageUrl})` }}
+    />
+  );
+}
+
 function CenteredContainer({ children }) {
   return (
     <div
@@ -98,11 +107,11 @@ function WidthConstrainer({ children }) {
 
 export default function Hero() {
   const [visibilityIndex, setVisibilityIndex] = useState(-1);
-  const [useNewBackground, setUseNewBackground] = useState(true); // performance test
+  const [useNewBackground, setUseNewBackground] = useState(false); // performance test
   useEffect(
     () =>
       console.log(
-        useNewBackground ? "Using fancy BG" : "Using background-attachment"
+        useNewBackground ? "Optimized for RPi" : "Using background-attachment"
       ),
     [useNewBackground]
   );
@@ -134,7 +143,7 @@ export default function Hero() {
 
   return (
     <header
-      style={{ willChange: "opacity" }}
+      // style={{ willChange: "opacity" }}
       className="
         flex items-center
         min-h-screen bg-gradient-to-br 
@@ -143,7 +152,7 @@ export default function Hero() {
       "
     >
       {useNewBackground ? (
-        <InsetBackgroundImage />
+        <InsetBackgroundImageNewest />
       ) : (
         <InsetBackgroundImageOld />
       )}

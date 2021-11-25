@@ -116,7 +116,7 @@ function Home() {
           <Hero />
 
           {pageSections.map((section) => (
-            <section id={section.id} key={section.id}>
+            <section id={section.id} key={section.id} className="bg-white">
               {section.component}
             </section>
           ))}
