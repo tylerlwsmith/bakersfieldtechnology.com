@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import ScrollLink from "components/ScrollLink";
 import FadeIn from "components/FadeIn";
 
 const heroImageUrl = "/hero.jpg";
@@ -172,7 +173,7 @@ export default function Hero() {
           </FadeIn>
 
           <FadeIn show={visibilityIndex >= 2}>
-            <a
+            <ScrollLink
               href="#services"
               className="
               inline-block tracking-widest border border-white rounded-full
@@ -182,7 +183,7 @@ export default function Hero() {
             "
             >
               Learn More
-            </a>
+            </ScrollLink>
           </FadeIn>
         </WidthConstrainer>
       </CenteredContainer>

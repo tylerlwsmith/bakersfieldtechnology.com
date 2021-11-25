@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import Script from "next/script";
+import ScrollLink from "components/ScrollLink";
 import Hero from "components/homepage/Hero";
 import Technologies from "components/homepage/Technologies";
 import Services from "components/homepage/Services";
@@ -41,15 +42,6 @@ const pageSections: PageSection[] = [
 ].filter((item) => item);
 
 function Home() {
-  function scrollToSection(
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
-  ) {
-    event.preventDefault();
-    // @ts-ignore
-    const sectionId = new URL(event.target.href).hash;
-    const section = document.querySelector(sectionId);
-    section.scrollIntoView();
-  }
   return (
     <React.Fragment>
       {/* https://blog.jarrodwatts.com/track-user-behaviour-on-your-website-with-google-analytics-and-nextjs */}
@@ -109,13 +101,12 @@ function Home() {
           <ul className="flex justify-end">
             {pageSections.map((section) => (
               <li key={section.id} className="mx-4">
-                <a
+                <ScrollLink
                   className="border-b border-transparent hover:border-white transition-all p-1.5"
                   href={`#${section.id}`}
-                  onClick={scrollToSection}
                 >
                   {section.menuTitle}
-                </a>
+                </ScrollLink>
               </li>
             ))}
           </ul>
