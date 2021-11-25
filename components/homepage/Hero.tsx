@@ -57,7 +57,7 @@ function InsetBackgroundImage() {
       }}
     >
       <div
-        className="z-0 inset-0 fixed bg-no-repeat bg-cover bg-center"
+        className="z-0 inset-0 absolute bg-no-repeat bg-cover bg-center sm:fixed"
         style={{ backgroundImage: `url(${heroImageUrl})` }}
       />
     </div>
