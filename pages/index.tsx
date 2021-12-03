@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import Script from "next/script";
 import ScrollLink from "components/ScrollLink";
@@ -7,10 +7,6 @@ import Technologies from "components/homepage/Technologies";
 import Services from "components/homepage/Services";
 import About from "components/homepage/About";
 import Contact from "components/homepage/Contact";
-
-console.log(
-  "Want to view the source for this site? Go to https://github.com/tylerlwsmith/bakersfieldtechnology.com"
-);
 
 interface PageSection {
   component: React.ReactNode;
@@ -42,6 +38,11 @@ const pageSections: PageSection[] = [
 ].filter((item) => item);
 
 function Home() {
+  useEffect(function () {
+    console.log(
+      "Want to view the source for this site? Go to https://github.com/tylerlwsmith/bakersfieldtechnology.com"
+    );
+  }, []);
   return (
     <React.Fragment>
       {/* https://blog.jarrodwatts.com/track-user-behaviour-on-your-website-with-google-analytics-and-nextjs */}
