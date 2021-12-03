@@ -17,6 +17,24 @@ const tools = [
 
 const languages = ["JavaScript", "Python", "PHP", "Ruby"];
 
+function ListTitle({ className = "", ...props }) {
+  return <h3 className={`mb-2 text-lg sm:text-xl ${className}`} {...props} />;
+}
+
+function List({ className = "", style = {}, ...props }) {
+  return (
+    <ul
+      className={`text-gray-500 mb-6 ${className}`}
+      style={{ columnCount: 2, ...style }}
+      {...props}
+    />
+  );
+}
+
+function ListItem({ className = "", ...props }) {
+  return <li className={`sm:text-lg sm:mb-1 ${className}`} {...props} />;
+}
+
 export default function Services() {
   return (
     <div className="pt-16 pb-6">
@@ -38,19 +56,19 @@ export default function Services() {
           </p>
         </div>
 
-        <h3 className="mb-2 text-xl">Tools</h3>
-        <ul className="text-gray-500 mb-6" style={{ columnCount: 2 }}>
+        <ListTitle>Tools</ListTitle>
+        <List>
           {tools.map((tool) => (
-            <li key={tool} className="text-lg" children={tool} />
+            <ListItem key={tool} children={tool} />
           ))}
-        </ul>
+        </List>
 
-        <h3 className="mb-2 text-xl">Lanuages</h3>
-        <ul className="text-gray-500 mb-6" style={{ columnCount: 2 }}>
+        <ListTitle>Lanuages</ListTitle>
+        <List>
           {languages.map((language) => (
-            <li key={language} className="text-lg" children={language} />
+            <ListItem key={language} children={language} />
           ))}
-        </ul>
+        </List>
 
         <div className="text-sm max-w-sm pt-2 text-gray-500">
           <p>
