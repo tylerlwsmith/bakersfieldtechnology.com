@@ -40,7 +40,7 @@ function ListItem({ className = "", ...props }) {
 export default function Services() {
   return (
     <div className="pt-16 pb-6">
-      <div className="max-w-3xl mx-auto px-8">
+      <div className="max-w-2xl mx-auto px-8">
         <h2
           className="
             font-black mb-8 text-pink-600
