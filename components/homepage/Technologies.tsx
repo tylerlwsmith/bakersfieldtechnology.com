@@ -70,10 +70,13 @@ export default function Services() {
           ))}
         </List>
 
-        <div className="text-sm max-w-sm pt-2 text-gray-500">
+        <div className="text-sm pt-2 text-gray-500">
           <p>
-            Don't see your organization's tools listed on here?{" "}
-            <a href="/#contact">Send an email</a> and let's see what we can do.
+            Don't see your organization's tools listed on here? <br />
+            <a href="/#contact" className="underline">
+              Send an email anyway
+            </a>
+            .
           </p>
         </div>
       </div>
