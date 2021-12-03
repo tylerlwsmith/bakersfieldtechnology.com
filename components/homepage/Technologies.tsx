@@ -1,3 +1,5 @@
+import ScrollLink from "components/ScrollLink";
+
 const tools = [
   "Laravel",
   "Django",
@@ -73,9 +75,9 @@ export default function Services() {
         <div className="text-sm pt-2 text-gray-500">
           <p>
             Don't see your organization's tools listed on here? <br />
-            <a href="/#contact" className="underline">
+            <ScrollLink href="#contact" className="underline">
               Send an email anyway
-            </a>
+            </ScrollLink>
             .
           </p>
         </div>
