@@ -64,7 +64,7 @@ function ServiceName({ children }) {
   return (
     <div
       className="
-        font-bold tracking-wide leading-snug
+        font-bold tracking-wide !leading-snug
         text-lg
         md:text-base
         xl:text-lg
