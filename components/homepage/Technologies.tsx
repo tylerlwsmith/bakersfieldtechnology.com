@@ -79,7 +79,7 @@ export default function Services() {
           <p>
             Don't see your organization's tools listed on here?{" "}
             <ScrollLink href="#contact" className="underline">
-              Send an email anyway
+              Get in touch
             </ScrollLink>
             .
           </p>
