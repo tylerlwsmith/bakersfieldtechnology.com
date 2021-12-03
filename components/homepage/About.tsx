@@ -1,7 +1,10 @@
+import styles from "./About.module.scss";
+
 export default function WhoAmI() {
   return (
-    <div className="pt-16 pb-20">
-      <div className="max-w-3xl mx-auto px-8">
+    <div className={`pt-16 lg:pb-20 relative pb-60 ${styles.backgroundImage}`}>
+      <div className={`hidden lg:block ${styles.gradient}`}></div>
+      <div className="max-w-3xl mx-auto px-8 relative">
         <h2
           className="
             font-black mb-8 text-pink-600
@@ -11,7 +14,7 @@ export default function WhoAmI() {
         >
           Who am I?
         </h2>
-        <div className="prose text-xl font-light text-gray-500 not-antialiased leading-8 sm:leading-10">
+        <div className="prose text-lg font-regular text-gray-500 not-antialiased leading-8 sm:leading-10">
           <p>
             My name is <strong>Tyler Smith</strong>. I was born and raised here
             in Bakersfield, then started my career in the tech industry while
