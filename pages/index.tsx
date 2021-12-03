@@ -123,11 +123,11 @@ function Home() {
           ))}
         </main>
 
-        <footer className="bg-gray-800 px-10 py-4 text-gray-300 text-center text-md">
+        <footer className="bg-gray-900 px-10 py-4 text-gray-300 text-center text-md">
           ©{" "}
           <a
             href="https://deadhandmedia.com/"
-            className="text-pink-400 underline"
+            className="text-pink-500 underline"
           >
             Tyler Smith
           </a>{" "}
