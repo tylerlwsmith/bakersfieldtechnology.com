@@ -79,17 +79,16 @@ export default function Services() {
     const observer = new IntersectionObserver(
       function (entries) {
         if (animationStarted) return;
+        if (entries[0].isIntersecting === false) return;
 
-        if (entries[0].isIntersecting === true) {
-          animationStarted = true;
-          const interval = setInterval(function () {
-            setVisibilityIndex((currentIndex) => {
-              const newIndex = currentIndex + 1;
-              if (newIndex >= services.length) clearInterval(interval);
-              return newIndex;
-            });
-          }, 100);
-        }
+        animationStarted = true;
+        const interval = setInterval(function () {
+          setVisibilityIndex((currentIndex) => {
+            const newIndex = currentIndex + 1;
+            if (newIndex >= services.length) clearInterval(interval);
+            return newIndex;
+          });
+        }, 100);
       },
       {
         rootMargin: "-200px 0px",
