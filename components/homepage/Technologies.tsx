@@ -1,4 +1,21 @@
-import Container from "components/Container";
+const tools = [
+  "Laravel",
+  "Django",
+  "Ruby on Rails",
+  "WordPress",
+  "Docker",
+  "Ansible",
+  "Terraform",
+  "React",
+  "Next.js",
+  "React Native",
+  "Express.js",
+  "Vue",
+  "Svelte",
+  "jQuery",
+];
+
+const languages = ["JavaScript", "Python", "PHP", "Ruby"];
 
 export default function Services() {
   return (
@@ -21,30 +38,18 @@ export default function Services() {
           </p>
         </div>
 
-        <h3 className="mb-2 text-lg">Tools</h3>
+        <h3 className="mb-2 text-xl">Tools</h3>
         <ul className="text-gray-500 mb-6" style={{ columnCount: 2 }}>
-          <li>Laravel</li>
-          <li>Django</li>
-          <li>Ruby on Rails</li>
-          <li>WordPress</li>
-          <li>Docker</li>
-          <li>Ansible</li>
-          <li>Terraform</li>
-          <li>React</li>
-          <li>Next.js</li>
-          <li>React Native</li>
-          <li>Express.js</li>
-          <li>Vue</li>
-          <li>Svelte</li>
-          <li>jQuery</li>
+          {tools.map((tool) => (
+            <li key={tool} className="text-lg" children={tool} />
+          ))}
         </ul>
 
-        <h3 className="mb-2 text-lg">Lanuages</h3>
+        <h3 className="mb-2 text-xl">Lanuages</h3>
         <ul className="text-gray-500 mb-6" style={{ columnCount: 2 }}>
-          <li>JavaScript</li>
-          <li>Python</li>
-          <li>PHP</li>
-          <li>Ruby</li>
+          {languages.map((language) => (
+            <li key={language} className="text-lg" children={language} />
+          ))}
         </ul>
 
         <div className="text-sm max-w-sm pt-2 text-gray-500">
