@@ -72,9 +72,12 @@ export default function Services() {
           ))}
         </List>
 
-        <div className="text-sm pt-2 text-gray-500">
+        <div
+          className="text-sm pt-2 text-gray-500 leading-normal"
+          style={{ maxWidth: 350 }}
+        >
           <p>
-            Don't see your organization's tools listed on here? <br />
+            Don't see your organization's tools listed on here?{" "}
             <ScrollLink href="#contact" className="underline">
               Send an email anyway
             </ScrollLink>
