@@ -123,8 +123,15 @@ function Home() {
           ))}
         </main>
 
-        <footer className="bg-gray-800 px-10 py-2 text-gray-300 text-center text-sm">
-          © Tyler Smith {new Date().getFullYear()}
+        <footer className="bg-gray-800 px-10 py-4 text-gray-300 text-center text-md">
+          ©{" "}
+          <a
+            href="https://deadhandmedia.com/"
+            className="text-pink-400 underline"
+          >
+            Tyler Smith
+          </a>{" "}
+          {new Date().getFullYear()}
         </footer>
       </div>
     </React.Fragment>
