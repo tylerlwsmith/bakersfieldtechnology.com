@@ -1,5 +1,12 @@
 import styles from "./About.module.scss";
 
+const links = [
+  { title: "LinkedIn", link: "https://www.linkedin.com/in/tylerlwsmith/" },
+  { title: "Resume", link: "https://raspberrytyler.com" },
+  { title: "GitHub", link: "https://github.com/tylerlwsmith" },
+  { title: "Blog", link: "https://dev.to/tylerlwsmith" },
+];
+
 export default function WhoAmI() {
   return (
     <div className={`pt-16 lg:pb-20 relative pb-60 ${styles.backgroundImage}`}>
@@ -29,6 +36,20 @@ export default function WhoAmI() {
             I returned to Bakersfield in 2019 and I'm eager to share my skills
             with the community that shaped who I am.
           </p>
+        </div>
+        <div className="flex flex-wrap mt-7 text-sm">
+          <div className="text-gray-500 font-semibold pr-4 pb-1">
+            <p>Check out my:</p>
+          </div>
+          <ul className="flex flex-wrap">
+            {links.map((link) => (
+              <li key={link.title} className="pr-4">
+                <a href={link.link} className="text-pink-600 underline">
+                  {link.title}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
