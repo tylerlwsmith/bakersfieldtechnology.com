@@ -9,9 +9,12 @@ const links = [
 
 export default function WhoAmI() {
   return (
-    <div className={`pt-16 lg:pb-20 relative pb-60 ${styles.backgroundImage}`}>
-      <div className={`hidden lg:block ${styles.gradient}`}></div>
-      <div className="max-w-3xl mx-auto px-8 relative">
+    <div
+      className={`pt-16 pb-60 sm:pb-40 lg:pb-20 relative flex ${styles.backgroundImage}`}
+    >
+      <div className={`${styles.gradient}`}></div>
+      <div className={styles.offset}></div>
+      <div className="max-w-3xl px-8 mx-auto lg:mx-0 relative">
         <h2
           className="
             font-black mb-8 text-pink-600
