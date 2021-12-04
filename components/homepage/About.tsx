@@ -14,7 +14,7 @@ export default function WhoAmI() {
     >
       <div className={`${styles.gradient}`}></div>
       <div className={styles.offset}></div>
-      <div className="max-w-3xl px-8 mx-auto lg:mx-0 relative">
+      <div className="relative max-w-3xl px-8 mx-auto lg:mx-0 w-full">
         <h2
           className="
             font-black mb-8 text-pink-600

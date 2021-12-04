@@ -1,5 +1,6 @@
-$offset_width: calc(50vw - calc(768px / 2));
-$offset_min_width: 300px;
+$content-container-width: 768px;
+$offset-width: calc(50vw - calc($content-container-width / 2));
+$offset-min-width: 300px;
 
 .backgroundImage {
   background: url("/thumbs-up-tyler-cropped-mirrored.png") right bottom / 120px
@@ -16,12 +17,12 @@ $offset_min_width: 300px;
   top: 0;
   bottom: 0;
   right: 0;
-  max-width: calc(100vw - ($offset_min_width / 2));
-  width: calc(100vw - $offset_width + ($offset_min_width / 2));
+  max-width: calc(100vw - ($offset-min-width / 2));
+  width: calc(100vw - $offset-width + ($offset-min-width / 2));
   background: linear-gradient(
     90deg,
     rgba(255, 255, 255, 0) 0px,
-    rgba(255, 255, 255, 0.9) $offset_min_width,
+    rgba(255, 255, 255, 0.9) $offset-min-width,
     rgb(255, 255, 255) 100%
   );
   @media (min-width: theme("screens.lg")) {
@@ -31,8 +32,8 @@ $offset_min_width: 300px;
 
 .offset {
   display: none;
-  width: $offset_width;
-  min-width: $offset_min_width;
+  width: $offset-width;
+  min-width: $offset-min-width;
   @media (min-width: theme("screens.lg")) {
     display: block;
   }
