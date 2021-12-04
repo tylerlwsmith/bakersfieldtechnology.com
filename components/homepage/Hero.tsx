@@ -4,66 +4,6 @@ import FadeIn from "components/FadeIn";
 
 const heroImageUrl = "/hero.jpg";
 
-function InsetBackgroundImage() {
-  /**
-   * Using fixed position element for better scroll performance than using
-   * `background-attachment: fixed`. Using `clip` to handle overflow issues
-   * on fixed position element.
-   *
-   * Problem description:  https://medium.com/vehikl-news/fixed-background-image-performance-issue-6b7d9e2dbc55
-   * Implemented solution: https://jsfiddle.net/lmeurs/jf3t0fmf/
-   *
-   * MacOS Chrome 95.0.4638.69 has a bug where sometimes the absolutely
-   * positioned parent will disappear on scroll. To replicate at the time of
-   * writing, comment out the useEffect hook, scroll to the very bottom of the
-   * page, reload then scroll to the very top. The background will be missing.
-   *
-   * To fix this, an intersection observer is used to change the rect top value
-   * from 0px to 1px on scroll. This forces the browser to rerender the
-   * element, but it takes a pixel off the top.
-   */
-  const ref = useRef();
-  const [inset, setInset] = useState(0);
-  useEffect(function animate() {
-    /** Keep a local reference so we can do cleanup without an error. */
-    const observedRef = ref.current;
-    const observer = new IntersectionObserver(
-      function (entries) {
-        if (entries[0].isIntersecting === false) return;
-        setInset((inset) => {
-          return inset === 0 ? 1 : 0;
-        });
-      },
-      {
-        /**
-         * If the page loads at the top pixel of the services section (which can
-         * happen by clicking "Services" from the menu then reloading the page),
-         * and scroll up, the background won't be loaded if the threshold is at
-         * the default of 0. We will trigger the intersection callback again at
-         * 0.1 to ensure that the image is visible.
-         */
-        threshold: [0, 0.1],
-      }
-    );
-    observer.observe(observedRef);
-    return () => observer.unobserve(observedRef);
-  }, []);
-  return (
-    <div
-      ref={ref}
-      className="absolute inset-0 opacity-30 mix-blend-soft-light"
-      style={{
-        clip: `rect(${inset}px, auto, auto, 0)`,
-      }}
-    >
-      <div
-        className="z-0 inset-0 absolute bg-no-repeat bg-cover bg-center sm:fixed"
-        style={{ backgroundImage: `url(${heroImageUrl})` }}
-      />
-    </div>
-  );
-}
-
 function InsetBackgroundImageOld() {
   return (
     <div
@@ -143,7 +83,6 @@ export default function Hero() {
 
   return (
     <header
-      // style={{ willChange: "opacity" }}
       className="
         flex items-center
         min-h-screen bg-gradient-to-br 
