@@ -69,7 +69,7 @@ function Home() {
           name="description"
           content="Building technology for Bakersfield's digital needs."
         />
-        {"<!-- Testing -->"}
+        <link rel="icon" href="favicon.svg" type="image/x-icon" />
         <meta property="og:site_name" content="Bakersfield Technology" />
         <meta
           property="og:description"
