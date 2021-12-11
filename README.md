@@ -2,7 +2,7 @@
 
 This repo contains the landing page for [bakersfieldtechnology.com](https://bakersfieldtechnology.com). I built the site over the course of a few days as an experiment to see if I could rank up for technology related keywords in Bakersfield to generate leads.
 
-The experiment was unsuccessful 😅
+The experiment has been unsuccessful so far 😅
 
 The project was built using Next.js, TypeScript and Tailwind CSS. It's hosted for free on Netlify, which builds it as a static site and deploys it automatically upon new commits.
 
