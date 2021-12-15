@@ -3,11 +3,17 @@ $offset-width: calc(50vw - calc($content-container-width / 2));
 $offset-min-width: 300px;
 
 .backgroundImage {
-  background: url("/thumbs-up-tyler-cropped-mirrored.png") right bottom / 120px
-    no-repeat;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: url("/thumbs-up-tyler-cropped.png") left bottom / 120px no-repeat;
+  transform: scaleX(-1);
   @media (min-width: theme("screens.lg")) {
     background: url("/thumbs-up-tyler-cropped.png") no-repeat bottom left /
       contain;
+    transform: scaleX(1);
   }
 }
 
