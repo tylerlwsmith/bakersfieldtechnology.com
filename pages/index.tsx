@@ -92,6 +92,19 @@ function Home() {
         />
       </Head>
       <div className="relative">
+        <span
+          className="
+            sr-only inline-block top-8 left-5 border border-white z-20 text-white
+            focus-within:not-sr-only focus-within:fixed
+          "
+        >
+          <ScrollLink
+            href={`#${pageSections[0].id}`}
+            class="py-2 px-5 bg-pink-600"
+          >
+            Skip To Content
+          </ScrollLink>
+        </span>
         <nav
           className="
             absolute left-0 right-0 top-0 text-white p-8 z-10
@@ -99,18 +112,6 @@ function Home() {
             sm:block
           "
         >
-          <span
-            className="
-            sr-only focus-within:not-sr-only inline-block focus-within:fixed top-8 left-5 border border-white
-          "
-          >
-            <ScrollLink
-              href={`#${pageSections[0].id}`}
-              class="py-2 px-5 bg-pink-600"
-            >
-              Skip To Content
-            </ScrollLink>
-          </span>
           <ul className="flex justify-end">
             {pageSections.map((section) => (
               <li key={section.id} className="mx-4">
