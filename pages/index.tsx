@@ -99,6 +99,18 @@ function Home() {
             sm:block
           "
         >
+          <span
+            className="
+            sr-only focus-within:not-sr-only inline-block focus-within:fixed top-8 left-5 border border-white
+          "
+          >
+            <ScrollLink
+              href={`#${pageSections[0].id}`}
+              class="py-2 px-5 bg-pink-600"
+            >
+              Skip To Content
+            </ScrollLink>
+          </span>
           <ul className="flex justify-end">
             {pageSections.map((section) => (
               <li key={section.id} className="mx-4">
