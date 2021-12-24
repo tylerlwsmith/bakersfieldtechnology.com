@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Link from "next/link";
 import Head from "next/head";
 import Script from "next/script";
 import ScrollLink from "components/ScrollLink";
@@ -136,15 +137,22 @@ function Home() {
           ))}
         </main>
 
-        <footer className="bg-gray-900 px-10 py-4 text-gray-300 text-center text-md">
-          ©{" "}
-          <a
-            href="https://deadhandmedia.com/"
-            className="text-pink-500 underline"
-          >
-            Tyler Smith
-          </a>{" "}
-          {new Date().getFullYear()}
+        <footer className="bg-gray-900 px-10 py-4 text-gray-300 text-center text-md flex justify-between">
+          <div>
+            ©{" "}
+            <a
+              href="https://deadhandmedia.com/"
+              className="text-pink-500 underline"
+            >
+              Tyler Smith
+            </a>{" "}
+            {new Date().getFullYear()}
+          </div>
+          <div>
+            <Link href="/privacy-policy">
+              <a className="text-pink-500">Privacy Policy</a>
+            </Link>
+          </div>
         </footer>
       </div>
     </React.Fragment>
