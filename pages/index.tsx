@@ -101,7 +101,7 @@ function Home() {
         >
           <ScrollLink
             href={`#${pageSections[0].id}`}
-            class="py-2 px-5 bg-pink-600"
+            className="py-2 px-5 bg-pink-600"
           >
             Skip To Content
           </ScrollLink>
