@@ -2,7 +2,7 @@ import styles from "./About.module.scss";
 
 const links = [
   { title: "LinkedIn", link: "https://www.linkedin.com/in/tylerlwsmith/" },
-  { title: "Resume", link: "https://raspberrytyler.com" },
+  { title: "Resume", link: "https://resume.deadhandmedia.com" },
   { title: "GitHub", link: "https://github.com/tylerlwsmith" },
   { title: "Blog", link: "https://dev.to/tylerlwsmith" },
 ];
