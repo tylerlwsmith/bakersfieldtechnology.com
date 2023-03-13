@@ -153,8 +153,8 @@ function Home() {
             {new Date().getFullYear()}
           </div>
           <div>
-            <Link href="/privacy-policy">
-              <a className="text-pink-500">Privacy Policy</a>
+            <Link href="/privacy-policy" className="text-pink-500">
+              Privacy Policy
             </Link>
           </div>
         </footer>
