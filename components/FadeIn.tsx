@@ -1,4 +1,14 @@
-export default function FadeIn({ children, show, className = "" }) {
+import React from "react";
+
+export default function FadeIn({
+  children,
+  show,
+  className = "",
+}: {
+  children: React.ReactNode;
+  show: boolean;
+  className?: string;
+}) {
   return (
     <div
       className={`

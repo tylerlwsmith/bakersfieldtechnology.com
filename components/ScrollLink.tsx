@@ -1,5 +1,11 @@
 // @ts-nocheck
-export default function ScrollLink({ href, ...props }) {
+export default function ScrollLink({
+  href,
+  ...props
+}: {
+  href: string;
+  [propName: string]: any;
+}) {
   function scrollToSection(
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
   ) {

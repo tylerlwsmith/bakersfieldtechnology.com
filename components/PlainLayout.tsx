@@ -1,6 +1,13 @@
+import React from "react";
 import Head from "next/head";
 
-export default function PlainLayout({ children, title }) {
+export default function PlainLayout({
+  children,
+  title,
+}: {
+  children: React.ReactNode;
+  title: string;
+}) {
   return (
     <>
       <Head>

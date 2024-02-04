@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import ScrollLink from "components/ScrollLink";
 import FadeIn from "components/FadeIn";
 
@@ -73,7 +73,7 @@ export default function Hero() {
   }, []);
 
   // https://stackoverflow.com/a/55358417/7759523
-  function onImageLoaded(url, callback) {
+  function onImageLoaded(url: string, callback: (event: Event) => void) {
     const img = new Image();
     img.src = url;
     img.onload = callback;
