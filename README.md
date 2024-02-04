@@ -23,5 +23,5 @@ npm run export
 To view the statically exported site locally, run the following command from the main project directory:
 
 ```sh
-python3 -m http.server -d out 3001
+python3 -m http.server -d out 3000
 ```
