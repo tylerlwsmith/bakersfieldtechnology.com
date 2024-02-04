@@ -11,3 +11,17 @@ The project was built using Next.js, TypeScript and Tailwind CSS. It's hosted fo
 Before you can run the site locally, you must have Node.js and Yarn package manager installed.
 
 To get started with development, clone the site, change into the project's directory, then run `yarn` in the terminal to install the project dependencies. To launch the development server, run `yarn dev`.
+
+## Building
+
+To build static export of the site locally, run the following command from the main project directory:
+
+```sh
+npm run export
+```
+
+To view the statically exported site locally, run the following command from the main project directory:
+
+```sh
+python3 -m http.server -d out 3001
+```
