@@ -60,8 +60,8 @@ export default function Hero() {
     let numberOfItems = 3;
 
     onImageLoaded(heroImageUrl, () => {
-      setTimeout(function () {
-        const interval = setInterval(function () {
+      setTimeout(function() {
+        const interval = setInterval(function() {
           setVisibilityIndex((currentIndex) => {
             const newIndex = currentIndex + 1;
             if (newIndex >= numberOfItems) clearInterval(interval);
@@ -85,7 +85,7 @@ export default function Hero() {
     <header
       className="
         flex items-center
-        min-h-screen bg-gradient-to-br 
+        min-h-screen bg-gradient-to-br
         from-pink-600 to-purple-500 text-white
         px-6 sm:px-10 pt-24 pb-20 relative
       "
