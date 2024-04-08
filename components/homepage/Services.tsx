@@ -85,12 +85,12 @@ export default function Services() {
   useEffect(function animate() {
     let animationStarted = false;
     const observer = new IntersectionObserver(
-      function (entries) {
+      function(entries) {
         if (animationStarted) return;
         if (entries[0].isIntersecting === false) return;
 
         animationStarted = true;
-        const interval = setInterval(function () {
+        const interval = setInterval(function() {
           setVisibilityIndex((currentIndex) => {
             const newIndex = currentIndex + 1;
             if (newIndex >= services.length) clearInterval(interval);
@@ -115,7 +115,7 @@ export default function Services() {
         </h2>
         <div
           className="
-            prose text-center text-gray-700 font-light mb-6 
+            prose text-center text-gray-700 font-light mb-6
             text-2xl px-6
             sm:text-3xl sm:px-8
           "
@@ -132,7 +132,7 @@ export default function Services() {
           grid pt-6 mx-auto gap-6 px-8
           xs:grid-cols-2 xs:px-4
           md:max-w-3xl md:grid-cols-4
-          xl:max-w-7xl 
+          xl:max-w-7xl
         "
       >
         {services.map((service, index) => (
