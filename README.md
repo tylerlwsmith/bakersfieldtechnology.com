@@ -1,5 +1,7 @@
 # Bakersfield Technology website
 
+> This project has been superseded by a new Go-powered version of the site. You can view the new repo [here](https://github.com/tylerlwsmith/go-bakersfieldtechnology).
+
 This repo contains the landing page for [bakersfieldtechnology.com](https://bakersfieldtechnology.com). I built the site over the course of a few days as an experiment to see if I could rank up for technology related keywords in Bakersfield to generate leads.
 
 The experiment has been unsuccessful so far 😅
